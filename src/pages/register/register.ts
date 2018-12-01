@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the RegisterPage page.
@@ -14,15 +14,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  fname = '';
+  lname = '';
+  email = '';
+  password = '';
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
   register(){
-    
+    this.alertCtrl.create({
+      title: "Info",
+      message: 
+      "<p>First Name " + this.fname + "</p>" + 
+      "<p>Last Name " + this.lname + "</p>" + 
+      "<p>Email " + this.email + "</p>" + 
+      "<p>Password " + this.password + "</p>"
+    }).present();
   }
 
 }
